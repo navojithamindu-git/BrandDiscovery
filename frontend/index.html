@@ -1,0 +1,57 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Brand Discovery</title>
+  <link rel="stylesheet" href="/ui/styles.css">
+</head>
+<body>
+  <header class="topbar">
+    <div><span class="eyebrow">SOCIALPULSE POC</span><h1>Brand Discovery</h1></div>
+    <span id="health" class="pill">Checking API…</span>
+  </header>
+
+  <main class="shell">
+    <section class="hero"><div><p class="eyebrow">AUTHORIZED COLLECTION</p><h2>See what your connected accounts are saying.</h2><p class="muted">Connect a Page, collect real posts and comments, then inspect the raw records before adding analysis.</p></div><div class="hero-mark">◎</div></section>
+
+    <div id="notice" class="notice hidden"></div>
+
+    <section class="grid two">
+      <article class="card">
+        <div class="card-head"><div><p class="eyebrow">01 / MONITOR</p><h3>Set up a brand</h3></div></div>
+        <form id="brand-form">
+          <label>Company name<input id="brand-name" required placeholder="Example Company"></label>
+          <label>Aliases <span class="hint">comma separated</span><input id="brand-aliases" placeholder="Example, Example LK"></label>
+          <label>Keywords <span class="hint">comma separated</span><input id="brand-keywords" placeholder="example.lk, product name"></label>
+          <button class="primary" type="submit">Create brand</button>
+        </form>
+        <div id="brand-summary" class="summary empty">Create a brand to begin.</div>
+      </article>
+
+      <article class="card">
+        <div class="card-head"><div><p class="eyebrow">02 / CONNECT</p><h3>Authorized accounts</h3></div><button id="refresh-accounts" class="icon-button" title="Refresh">↻</button></div>
+        <div id="accounts" class="stack empty">No accounts connected.</div>
+        <button id="connect-facebook" class="secondary" disabled>Connect Facebook Page</button>
+        <p class="hint block">The Meta dialog handles authentication. SocialPulse never receives a Facebook password.</p>
+      </article>
+    </section>
+
+    <section id="page-picker" class="card hidden"><div class="card-head"><div><p class="eyebrow">META AUTHORIZATION</p><h3>Choose a Page</h3></div><span class="hint">This selection expires shortly.</span></div><div id="pages" class="page-list"></div></section>
+
+    <section class="card">
+      <div class="card-head"><div><p class="eyebrow">03 / COLLECT</p><h3>Collection controls</h3></div><div class="actions"><select id="account-select" disabled></select><button id="sync" class="primary" disabled>Sync recent</button><button id="backfill" class="secondary" disabled>Backfill history</button></div></div>
+      <div id="jobs" class="table-wrap"><div class="empty">No collection jobs yet.</div></div>
+    </section>
+
+    <section class="grid two">
+      <article class="card"><div class="card-head"><div><p class="eyebrow">04 / RECORDS</p><h3>Recent posts</h3></div><a class="link" href="/export/posts?format=csv">Export CSV ↗</a></div><div id="posts" class="record-list empty">No posts collected.</div></article>
+      <article class="card"><div class="card-head"><div><p class="eyebrow">COMMENTS</p><h3>Recent comments</h3></div><a class="link" href="/export/comments?format=csv">Export CSV ↗</a></div><div id="comments" class="record-list empty">No comments collected.</div></article>
+    </section>
+
+    <section class="card"><div class="card-head"><div><p class="eyebrow">OPERATIONS</p><h3>Collection errors</h3></div></div><div id="errors" class="record-list empty">No errors recorded.</div></section>
+  </main>
+  <footer>Brand Discovery POC · authorized platform data only</footer>
+  <script src="/ui/app.js"></script>
+</body>
+</html>
